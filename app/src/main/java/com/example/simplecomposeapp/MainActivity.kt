@@ -4,16 +4,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.List
+import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.List
-import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -22,16 +19,18 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.example.simplecomposeapp.data.Superhero
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.simplecomposeapp.ui.screen.animation.AnimationScreen
 import com.example.simplecomposeapp.ui.screen.counter.CounterScreen
+import com.example.simplecomposeapp.ui.screen.navigation.Navigation
 import com.example.simplecomposeapp.ui.screen.superhero.SuperheroListScreen
 import com.example.simplecomposeapp.ui.screen.superhero.sampleSuperheroes
 import com.example.simplecomposeapp.ui.theme.DemoAppTheme
@@ -46,7 +45,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    DemoApp()
+                    Navigation()
+                    //DemoApp()
                 }
             }
         }
@@ -54,10 +54,12 @@ class MainActivity : ComponentActivity() {
 }
 
 enum class Screen {
-    COUNTER, SUPERHERO_LIST
+    COUNTER,
+    SUPERHERO_LIST,
+    ANIMATION
 }
 
-@Composable
+/*@Composable
 fun DemoApp() {
     var currentScreen by remember { mutableStateOf(Screen.COUNTER) }
 
@@ -70,6 +72,7 @@ fun DemoApp() {
             when (currentScreen) {
                 Screen.COUNTER -> CounterScreen()
                 Screen.SUPERHERO_LIST -> SuperheroListScreen(superheroes = sampleSuperheroes)
+                Screen.ANIMATION -> AnimationScreen()
             }
         }
         NavigationBar {
@@ -85,14 +88,22 @@ fun DemoApp() {
                 icon = { Icon(Icons.AutoMirrored.Filled.List, contentDescription = "Superheroes") },
                 label = { Text("Superheroes") }
             )
+            NavigationBarItem(
+                selected = currentScreen == Screen.ANIMATION,
+                onClick = { currentScreen = Screen.ANIMATION},
+                icon = { Icon(Icons.Filled.Face, contentDescription = "Animations") },
+                label = { Text("Animations") }
+            )
+
         }
     }
-}
+}*/
 
-@Preview(showBackground = true)
+
+/*@Preview(showBackground = true)
 @Composable
 fun DemoAppPreview() {
     DemoAppTheme {
         DemoApp()
     }
-}
+}*/

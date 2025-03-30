@@ -1,6 +1,6 @@
 package com.example.simplecomposeapp.ui.screen.superhero
 
-import android.R
+import com.example.simplecomposeapp.R
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -24,12 +24,17 @@ fun SuperheroListScreen(superheroes: List<Superhero>) {
     }
 }
 
-val sampleSuperheroes = listOf(
-    Superhero("Iron Man", 48, R.drawable.placeholder),
-    Superhero("Captain America", 102, R.drawable.placeholder),
-    Superhero("Black Widow", 35, R.drawable.placeholder),
-    Superhero("Thor", 1500, R.drawable.placeholder),
-    Superhero("Hulk", 49, R.drawable.placeholder)
+val sampleSuperheroes= listOf(
+    Superhero("Iron Man", 48, R.drawable.iron_man),
+    Superhero("Captain America", 102, R.drawable.capetan_america),
+    Superhero("Black Widow", 35, R.drawable.black_widow),
+    Superhero("Thor", 1500, R.drawable.thor),
+    Superhero("Hulk", 49, R.drawable.hulk),
+    Superhero("Spider-Man", 17, R.drawable.spider_man),
+    Superhero("Doctor Strange", 42, R.drawable.doctor_strange),
+    Superhero("Black Panther", 40, R.drawable.black_panther),
+    Superhero("Scarlet Witch", 32, R.drawable.scarlet_witch),
+    Superhero("Ant-Man", 45, R.drawable.ant_man)
 )
 
 @Preview(showBackground = true)
