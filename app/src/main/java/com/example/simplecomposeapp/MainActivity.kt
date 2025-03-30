@@ -97,13 +97,14 @@ fun DemoApp() {
 
         }
     }
-}*/
+}
 
 
-/*@Preview(showBackground = true)
+@Preview(showBackground = true)
 @Composable
 fun DemoAppPreview() {
     DemoAppTheme {
         DemoApp()
     }
-}*/
+}
+*/

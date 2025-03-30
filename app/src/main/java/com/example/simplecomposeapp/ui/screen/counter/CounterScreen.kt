@@ -20,15 +20,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.example.simplecomposeapp.Screen
 
 
 @Composable
 fun CounterScreen(
-    navigateToAnimation: () -> Unit,
-    navigateToSuperheroList: () -> Unit
+    navController: NavController
 ) {
-    var count by rememberSaveable { mutableIntStateOf(0) }
-    //var count = 0
+    //var count by rememberSaveable { mutableIntStateOf(0) }
+    var count = 0
 
     Column(
         modifier = Modifier
@@ -67,11 +68,11 @@ fun CounterScreen(
             }
         }
 
-        Button(onClick = navigateToAnimation) {
+        Button(onClick = { navController.navigate(Screen.ANIMATION.name) }) {
             Text("Go to Animations")
         }
 
-        Button(onClick = navigateToSuperheroList) {
+        Button(onClick = { navController.navigate(Screen.SUPERHERO_LIST.name) }) {
             Text("Go to Superhero List")
         }
     }

@@ -15,10 +15,7 @@ fun Navigation() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screen.COUNTER.name) {
         composable(Screen.COUNTER.name) {
-            CounterScreen(
-                navigateToAnimation = { navController.navigate(Screen.ANIMATION.name) },
-                navigateToSuperheroList = { navController.navigate(Screen.SUPERHERO_LIST.name) }
-                )
+            CounterScreen(navController = navController)
         }
         composable(Screen.SUPERHERO_LIST.name) {
             SuperheroListScreen(sampleSuperheroes)
